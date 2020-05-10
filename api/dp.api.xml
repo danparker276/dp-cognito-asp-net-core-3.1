@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>dp.api</name>
+    </assembly>
+    <members>
+        <member name="M:dp.api.Controllers.UsersController.CreateUser(dp.business.Models.UserCreate)">
+            <summary>
+            Create a new user from email
+            </summary>
+            <param name="user"></param>
+            <returns>The New UserId or nothing if user exists</returns>
+        </member>
+        <member name="M:dp.api.Controllers.UsersController.GetById(System.Int32)">
+            <summary>
+            Get current information about a userId v2
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dp.api.Controllers.UsersController.GetInfoByApiKey">
+            <summary>
+            Here you can use an API key in the header x-api-key for auth and it will give you the userId
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
