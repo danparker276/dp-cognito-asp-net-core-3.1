@@ -65,6 +65,9 @@
   <ItemGroup>
     <Build Include="dbo\Tables\users.sql" />
     <Build Include="dbo\Tables\user_api_keys.sql" />
+    <Build Include="dbo\Tables\user_profile.sql" />
+    <Build Include="dbo\Tables\team.sql" />
+    <Build Include="dbo\Tables\images.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment1.sql" />

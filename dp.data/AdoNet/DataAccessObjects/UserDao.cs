@@ -60,6 +60,29 @@ namespace dp.data.AdoNet.DataAccessObjects
 
 
         }
+        public async Task<User> GetUserIdFromCognitoName(string userName)
+        {
+            SqlQuery proc = new SqlQuery(@" 
+                select * from users 
+                where CognitoUserName=@userName;
+                ", 30, System.Data.CommandType.Text);
+            proc.AddInputParam("userName", SqlDbType.Int, userName);
+            return await _queryExecutor.ExecuteAsync(proc, dataReader =>
+            {
+                while (dataReader.Read())
+                {
+                    return new User()
+                    {
+                        UserId = SqlQueryResultParser.GetValue<Int32>(dataReader, "userId"),
+                        Role = (UserType)SqlQueryResultParser.GetValue<Int32>(dataReader, "userTypeId"),
+                        IsActive = SqlQueryResultParser.GetValue<Boolean>(dataReader, "isActive"),
+                        Email = SqlQueryResultParser.GetValue<String>(dataReader, "email")
+                    };
+                }
+                return null;
+            });
+        }
+        //TODO add user from Cognito
 
         public async Task<User> GetUserInfo(int userId)
         {

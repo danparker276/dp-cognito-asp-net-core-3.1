@@ -11,7 +11,8 @@ namespace dp.data.AdoNet
             _dpDbConnectionString = dpDbConnectionString;
         }
         public UserDao UserDao => new UserDao(_dpDbConnectionString);
-
+        public ImageDao ImageDao => new ImageDao(_dpDbConnectionString);
+        public TeamDao TeamDao => new TeamDao(_dpDbConnectionString);
     }
     
 }

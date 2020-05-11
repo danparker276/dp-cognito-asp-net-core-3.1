@@ -17,45 +17,34 @@ namespace dp.business.Models
         public int TeamId { get; set; }
         public KeyActiveState ActiveState { get; set; }
     }
-    public class TeamPhotoDoc
+    public class TeamPhoto
     {
         public int TeamId { get; set; }
         public string ImageGuid { get; set; }
         public string Description { get; set; }
     }
-    public class TeamPhotoDocResponse : TeamPhotoDoc
+    public class TeamPhotoResponse : TeamPhoto
     {
         public DateTime Created { get; set; }
     }
 
-
-    public class UpdateTeamDocDescription
-    {
-        public int TeamId { get; set; }
-        public string Description { get; set; }
-        public string NewDescription { get; set; }
-    }
     public class TeamFlat
     {
         public int TeamId { get; set; }
         public string TeamName { get; set; }
-        public int? Credits { get; set; }
     }
     public class Team : TeamFlat
     {
-        /// <summary>
-        /// Team can access production
-        /// </summary>
-        public bool ProductionAccess { get; set; }
+
         public DateTime Updated { get; set; }
-        public bool IsHomePay { get; set; }
+
     }
     public class TeamInfo : Team
     {
         public int AdminUserId { get; set; }
         public DateTime Created { get; set; }
         public string AdminEmail { get; set; }
-        public string CreditNotes { get; set; }
+        public bool IsTrial { get; set; }
 
     }
     public class TeamInfoGridReponse
@@ -64,12 +53,7 @@ namespace dp.business.Models
         public List<TeamInfo> Data { get; set; }
     }
 
-    public class CreditsRequest
-    {
-        public int ProductId { get; set; }
-        public int TeamId { get; set; }
-        public int Credits { get; set; }
-    }
+
     public class TeamMember
     {
         public int UserId { get; set; }
@@ -85,15 +69,13 @@ namespace dp.business.Models
         public int Total { get; set; }
         public List<TeamMember> Data { get; set; }
     }
-    public class TeamApiPermission
+
+    public class TeamAdminResponse : TeamInfo
     {
-        public int ApiId { get; set; }
-        public int TeamId { get; set; }
-    }
-    public class TeamIsHomePayRequest
-    {
-        public bool IsHomePay { get; set; }
-        public int TeamId { get; set; }
+        public List<TeamPhotoResponse> TeamPhotos { get; set; }
+
+
+
     }
 
 }

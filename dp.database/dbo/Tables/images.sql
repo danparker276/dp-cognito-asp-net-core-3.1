@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[Images]
+(
+	[ImageId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [ImageData] IMAGE NOT NULL, 
+    [Created] DATETIME NOT NULL DEFAULT GETUTCDATE(), 
+    [UserId] INT NOT NULL, 
+    [ImageGUID] UNIQUEIDENTIFIER NOT NULL DEFAULT NewSequentialID(), 
+    [ImageThumb] IMAGE NULL
+)

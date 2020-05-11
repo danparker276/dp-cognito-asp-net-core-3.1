@@ -2,11 +2,8 @@
 using Amazon.CognitoIdentityProvider.Model;
 using dp.api.Filters;
 using dp.api.Models;
-using dp.business.Enums;
 using dp.business.Helpers;
 using dp.business.Models;
-using dp.data;
-using dp.data.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,13 +20,9 @@ namespace dp.api.Controllers
     [Route("api/[controller]")]
     public class UsersController : BaseController
     {
-        private string _dpDbConnectionString;
-        private IDaoFactory AdoNetDao => DaoFactories.GetFactory(DataProvider.AdoNet, _dpDbConnectionString);
-        string _poolId;
+
         public UsersController()
         {
-                _poolId = Environment.GetEnvironmentVariable("poolId");
-               _dpDbConnectionString = Environment.GetEnvironmentVariable("dpDbConnectionString");
         }
 
 
@@ -66,7 +59,7 @@ namespace dp.api.Controllers
             return Ok(users);
         }
 
-        //Below are tasks for later on when we will have our users create with the new API and not service stack
+        //
 
         /// <summary>
         /// Create a new user from email
@@ -83,9 +76,9 @@ namespace dp.api.Controllers
                 return BadRequest("Valid Email is requried");
             if (String.IsNullOrEmpty(user.Password) || user.Password.Length < 5)
                 return BadRequest("Valid Password is requried"); 
-            int? userId= await AdoNetDao.UserDao.CreateUser(user);
+            //TODO create on aws
  
-            return Ok(userId);
+            return Ok(1);
         }
         
 

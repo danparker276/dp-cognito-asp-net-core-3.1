@@ -9,6 +9,7 @@ namespace dp.business.Models
         public UserType Role { get; set; }
         public bool IsActive { get; set; }
         public string Email { get; set; }
+        public int? TeamId { get; set; }
     }
     public class UserProfile
     {

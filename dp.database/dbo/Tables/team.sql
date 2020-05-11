@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[team]
+(
+	[TeamId] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [Name] NVARCHAR(50) NOT NULL, 
+    [AdminUserId] INT NOT NULL, 
+    [IsTrial] BIT NOT NULL DEFAULT 1, 
+    [Updated] DATETIME NOT NULL DEFAULT GETUTCDATE()
+)

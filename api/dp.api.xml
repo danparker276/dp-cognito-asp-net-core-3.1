@@ -4,6 +4,41 @@
         <name>dp.api</name>
     </assembly>
     <members>
+        <member name="M:dp.api.Controllers.TeamsController.GetAllTeams(System.String,System.Int32,dp.business.Enums.Sort,dp.business.Enums.TeamSort,dp.business.Enums.TeamExpand)">
+            <summary>
+            Get teams by various query
+            </summary>
+            <param name="search"> Search team by name or email</param>
+            <param name="expand">Level of details</param>
+            <param name="limit">The number of team data in return</param>
+            <param name="sort"></param>
+            <param name="sortby"> Credits=0 (Default), Updated=1, TeamName=2</param>
+            <returns></returns>
+        </member>
+        <member name="M:dp.api.Controllers.TeamsController.GetTeamsGrid(System.String,System.String,System.Boolean,System.Int32)">
+            <summary>
+            Gets the top 50 results given the search Name or search Email (only use 1 of those)
+            </summary>
+            <param name="searchName"> Search Team Name</param>
+            <param name="searchEmail">Search by Admin Email (only use Team or Email)</param>
+            <param name="sortAsc">default false</param>
+            <param name="teamSort"> Credits=0 (Default), Updated=1,TeamName=2</param>
+            <returns></returns>
+        </member>
+        <member name="M:dp.api.Controllers.TeamsController.AddTeamImage(dp.business.Models.TeamPhoto)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:dp.api.Controllers.TeamsController.GetTeamImages(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="teamId"></param>
+            <returns></returns>
+        </member>
         <member name="M:dp.api.Controllers.UsersController.CreateUser(dp.business.Models.UserCreate)">
             <summary>
             Create a new user from email
